@@ -9,7 +9,6 @@ import jakarta.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-
 public class Administrador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

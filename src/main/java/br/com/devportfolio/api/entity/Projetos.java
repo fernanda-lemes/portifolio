@@ -4,13 +4,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import jakarta.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "projetos")
 @Getter
 @Setter
 @NoArgsConstructor
-
 public class Projetos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,4 +31,11 @@ public class Projetos {
     private String urlImagem;
     @Column(name = "data_conclusao")
     private Date dataConclusao;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "projeto_habilidade",
+            joinColumns = @JoinColumn(name = "projeto_id"),
+            inverseJoinColumns = @JoinColumn(name = "habilidade_id")
+    )
+    private List<Habilidades> habilidades = new ArrayList<>();
 }

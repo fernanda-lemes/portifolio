@@ -11,7 +11,6 @@ import java.sql.Date;
 @Getter
 @Setter
 @NoArgsConstructor
-
 public class MensagensContato {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
